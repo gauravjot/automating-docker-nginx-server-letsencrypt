@@ -8,10 +8,10 @@ $ cd gauravjot.com
 $ npm install
 $ npm run build
 $ mv -v /gauravjot.com/build/* ~/html/
-$ sudo docker compose -f docker_nginx.yml up
-$ sudo docker compose -f docker_nginx.yml run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d garaya.ddns.net
+$ sudo docker compose -f docker_template.yml up
+$ sudo docker compose -f docker_template.yml run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d yourdomain.com
 
 
 ------------------------
-Bash into container
+Useful: Bash into container
 $ sudo docker exec -it <cont_name> bash

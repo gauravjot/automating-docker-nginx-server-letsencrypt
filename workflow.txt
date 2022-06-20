@@ -1,0 +1,17 @@
+Setup server with nginx-temp.conf and run certbot to issued certificates. Once certificates are generated successfully, then use nginx.conf for production.
+
+----------------------
+$ sudo curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+$ sudo apt install nodejs git
+$ git clone https://github.com/gauravjot/gauravjot.com.git
+$ cd gauravjot.com
+$ npm install
+$ npm run build
+$ mv -v /gauravjot.com/build/* ~/html/
+$ sudo docker compose -f docker_nginx.yml up
+$ sudo docker compose -f docker_nginx.yml run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d garaya.ddns.net
+
+
+------------------------
+Bash into container
+$ sudo docker exec -it <cont_name> bash

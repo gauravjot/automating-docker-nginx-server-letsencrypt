@@ -18,7 +18,7 @@ Clone this repository in *~/* directory and move following files for easier setu
 
 - Create `~/html` directory to store your html files.
 
-#### Seting up Nginx
+#### Setting up Nginx
 - CD to `~` directory and run *`sudo docker compose -f docker_template.yml up webserver -d`*
 - Run *`sudo docker ps -a`* and copy name of the webserver container.
 - Run *`sudo docker start <webserver-container-name>`*. Your project should be online and you should check by visiting *http://yourdomain.com*.

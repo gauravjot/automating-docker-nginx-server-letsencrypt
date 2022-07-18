@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kube-deployment
+  name: nginx-deployment
   labels:
-    app: kube-deployment
+    app: nginx-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: kube-deployment
+      app: nginx-deployment
   template:
     metadata:
       labels:
-        app: kube-deployment
+        app: nginx-deployment
     spec:
       containers:
       - name: nginx-container
@@ -23,10 +23,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: deployment-service
+  name: nginx-ip-service
 spec:
   selector:
-    app: kube-deployment
+    app: nginx-deployment
   ports:
     - protocol: TCP
       port: 80

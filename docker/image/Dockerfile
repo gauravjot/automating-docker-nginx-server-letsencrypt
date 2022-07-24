@@ -1,7 +1,9 @@
+# This Dockerfile and nginx.conf file should be placed witihn project and
+# is used in github actions workflow: 
+# github_actions/nodejs_docker_push_workflow.yaml
+# to generate docker image and push to dockerhub
+
 FROM nginx:1.23.0
 COPY nginx.conf /etc/nginx/sites_available/
-RUN apt-get update
-RUN apt-get install -y git
-RUN git clone -b barebone https://github.com/gauravjot/automate-projectincloud-deployment.git
-RUN cp -R automate-projectincloud-deployment/* /usr/share/nginx/html/
+COPY build/ /usr/share/nginx/html/
 EXPOSE 80/tcp
